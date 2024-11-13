@@ -7,10 +7,153 @@
   <!-- stylesheet -->
 <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
 
+<style>
+  .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+  }
+
+  .popup-overlay.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+</style>
+
 <!-- from cdn -->
 <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 </head>
 <body class="bg-white">
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+      <!-- Travel Form Content -->
+      <div class="bg-white rounded-lg shadow-xl overflow-hidden flex w-[800px] h-[600px]">
+          <!-- Copy the entire content from travel-form.html here, excluding the DOCTYPE, html, head, and body tags -->
+          <div class="bg-white rounded-lg shadow-xl overflow-hidden flex w-[800px] h-[600px]">
+              <!-- Left section -->
+              <div class="bg-[#003B5C] p-8 text-white w-[300px] flex flex-col relative overflow-hidden" style="background-image: url('https://picsum.photos/800/1200'); background-size: cover; background-position: center;">
+                <div class="absolute inset-0 bg-[#003B5C] bg-opacity-80"></div>
+                <div class="relative z-10">
+                    <img src="https://picsum.photos/200" alt="Logo" class="w-32 mb-12">
+                    <div class="space-y-12 flex-grow flex flex-col justify-center">
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 rounded-full p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold">100% Customised Trips</h3>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 rounded-full p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold">95% Visa Success Rate</h3>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="bg-white/20 rounded-full p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold">24x7 Support</h3>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+              <!-- Right section -->
+                <div class="p-8 flex-1 flex flex-col">
+                  <div class="flex justify-between items-start mb-8">
+                      <h2 class="text-2xl font-semibold">Have a question? Enter your details</h2>
+                      <button class="text-gray-500 hover:text-gray-700">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                          </svg>
+                      </button>
+                  </div>
+      
+                  <form class="space-y-6 flex-grow flex flex-col justify-center">
+                      <div>
+                          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                          <input type="text" id="name" placeholder="Enter your name" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      </div>
+                      
+                      <div>
+                          <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                          <div class="flex gap-2">
+                              <div class="relative">
+                                  <input type="text" value="+91" class="w-20 px-3 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                  <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+                                      <svg width="16" height="16" viewBox="0 0 24 24">
+                                          <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+                                      </svg>
+                                  </div>
+                              </div>
+                              <input type="tel" id="phone" placeholder="Enter your mobile number" class="flex-1 px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                          </div>
+                      </div>
+      
+                      <div>
+                          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                          <input type="email" id="email" placeholder="Enter your email address" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                      </div>
+
+                      <div>
+                        <label for="requerments" class="block text-sm font-medium text-gray-700 mb-1">Requerments</label>
+                        <input type="textbox" id="text" placeholder="Fill Your Requerments" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                      
+                      <!-- <div>
+                          <label for="region" class="block text-sm font-medium text-gray-700 mb-1">Preferred Region</label>
+                          <select id="region" class="w-full px-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
+                              <option value="" disabled selected>Select your preferred region</option>
+                              <option value="asia">Asia</option>
+                              <option value="europe">Europe</option>
+                              <option value="americas">Americas</option>
+                              <option value="africa">Africa</option>
+                              <option value="oceania">Oceania</option>
+                          </select>
+                      </div> -->
+      
+                      <button type="submit" class="w-full py-3 px-4 bg-emerald-500 text-white text-lg font-semibold rounded-full hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-colors duration-300">
+                          Request callback
+                      </button>
+                  </form>
+              </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script>
+      window.addEventListener('load', function() {
+          setTimeout(function() {
+              document.getElementById('popupOverlay').classList.add('active');
+          }, 2000); // Shows popup after 2 seconds
+      });
+
+      // Close popup when clicking the close button
+      document.querySelector('.text-gray-500').addEventListener('click', function() {
+          document.getElementById('popupOverlay').classList.remove('active');
+      });
+
+      // Close popup when clicking outside
+      document.getElementById('popupOverlay').addEventListener('click', function(e) {
+          if (e.target === this) {
+              this.classList.remove('active');
+          }
+      });
+  </script>
 
 <!-- Hero Section -->
 <div class="">
@@ -2489,7 +2632,6 @@
     </div>
   </div>
 </footer>
-
 
 
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
