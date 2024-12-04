@@ -1,0 +1,27 @@
+.brand-logo {
+    max-width: 200px;
+}
+
+.btn-primary {
+    background-color: #FF2E69;
+    opacity: 0.8;
+}
+
+.text-secondary {
+    color: #FF2E69;
+    opacity: 0.8;
+}
+
+.mini-title {
+    color: #F7A50C;
+    opacity: 0.8;
+}
+
+.bg-secondary {
+    background-color: #6D1089;
+    opacity: 0.8;
+}
+
+.shape-bg {
+    color: #FF2E69;
+}
